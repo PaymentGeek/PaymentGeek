@@ -1,10 +1,10 @@
 Feature: Best Buy Products Feature
 
-  Scenario: Get a list of Products from Best Buy
-    When Get all products from store
+  Scenario: I get a list of products from Best Buy
+    When I get all products from the store
 
-  Scenario Outline: Get Products based on ID
-    When Get product by id <id>
+  Scenario Outline: I get a product based on an ID
+    When I get a product by id <id>
     Examples:
     |id          |
     |43900       |

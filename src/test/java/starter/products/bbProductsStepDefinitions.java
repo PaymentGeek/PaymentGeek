@@ -15,12 +15,12 @@ public class bbProductsStepDefinitions {
     @Steps
     bbProductsAPI productsAPI;
 
-    @When("Get all products from store")
+    @When("I get all products from the store")
     public void getAllProducts() {
         bbProductsAPI.getAllProducts();
     }
 
-    @When("Get product by id {}")
+    @When("I get a product by id {}")
     public void getProductById(String id) {
         bbProductsAPI.getProductById(id);
     }
