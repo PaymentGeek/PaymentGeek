@@ -24,4 +24,9 @@ public class bbProductsStepDefinitions {
     public void getProductById(String id) {
         bbProductsAPI.getProductById(id);
     }
+
+    @Then("the response code should be {}")
+    public void theResultIsValid(int responseCode) {
+        restAssuredThat(response -> response.statusCode(responseCode));
+    }
 }
