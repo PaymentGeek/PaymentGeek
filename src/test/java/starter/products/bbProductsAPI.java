@@ -10,6 +10,6 @@ public class bbProductsAPI {
     @Step("Get all products from store")
     public static void getAllProducts() {
         SerenityRest.given()
-                .get(ALL_PRODUCTS);
+                .get(ALL_PRODUCTS).prettyPrint();
     }
 }
