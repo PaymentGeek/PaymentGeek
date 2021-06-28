@@ -49,7 +49,7 @@ Feature: Best Buy Products Feature
       # Invalid description
       |XRAY-0005_2    |['description' should NOT be longer than 100 characters]|
 
-  Scenario Outline: XRAY-0006 POST a new product
+  Scenario Outline: XRAY-0006 PUT a new product
     # please pass the product ID as a first parameter
     # and XRAY ID of the test case as a parameter
     When I PUT a new product <id> for id <xray_id>
@@ -63,3 +63,15 @@ Feature: Best Buy Products Feature
       |43900       |XRAY-0006_1    |PUT - Test New Product1|
       |48530       |XRAY-0006_2    |PUT - Test New Product2|
       |127687      |XRAY-0006_3    |PUT - Test New Product3|
+
+  Scenario Outline: XRAY-0007 PUT a new invalid product
+    # please pass the product ID as a first parameter
+    # and XRAY ID of the test case as a parameter
+    When I PUT a new product <id> for id <xray_id>
+    Then the response code should be <response_code>
+    And the value in field <field> equals <error_code>
+    Examples:
+      |id          |xray_id        |field         |response_code |error_code                                              |
+      |123         |XRAY-0007_1    |message       |404           |No record found for id '123'                            |
+      |48530       |XRAY-0007_2    |errors        |400           |['price' should be multiple of 0.01]                    |
+      |127687      |XRAY-0007_3    |errors        |400           |['description' should NOT be longer than 100 characters]|

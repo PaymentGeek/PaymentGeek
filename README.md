@@ -21,3 +21,6 @@ Scenario Outline 3( 3 x tests ): I get a product based on an invalid ID
 POST - 5 Tests
 Scenario Outline 4( 3 x tests ): XRAY-0004 POST a new product
 Scenario Outline 5( 2 x tests ): XRAY-0005 POST an invalid product
+PUT - 6 Tests
+Scenario Outline 4( 3 x tests ): XRAY-0006 PUT a new product
+Scenario Outline 5( 3 x tests ): XRAY-0007 PUT an invalid product
