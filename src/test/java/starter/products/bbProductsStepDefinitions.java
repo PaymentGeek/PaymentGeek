@@ -38,6 +38,14 @@ public class bbProductsStepDefinitions {
         restAssuredThat(response -> response.statusCode(responseCode));
     }
 
+    @Then("the value in field {} equals {}")
+    public void theFieldHasValue(String jsonField, String value) {
+        ResponseBody response = SerenityRest.lastResponse();
+        JsonPath jp = new JsonPath(response.asString());
+        String jsonFieldContent = jp.get(jsonField).toString();
+        Assert.assertEquals(jsonFieldContent,value);
+    }
+
     @Then("the response body field {} is not empty")
     public void theResultIsNotEmpty(String field) {
         ResponseBody body = SerenityRest.lastResponse();
@@ -45,5 +53,9 @@ public class bbProductsStepDefinitions {
 
         Integer jsonField = json.get(field);
         Assert.assertTrue(jsonField != null );
+    }
+    @When("I POST a new product for id {}")
+    public void postProduct(String xrayId) {
+        bbProductsAPI.postProductforId(xrayId);
     }
 }

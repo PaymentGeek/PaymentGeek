@@ -12,9 +12,12 @@ file:///C:/Users/<local_User>/IdeaProjects/serenity-rest-starter/target/site/ser
 # Test planning
 For the purpose of this assignment, I have selected one endpoint(Product) which I will cover with all basic CRUD operations.
 I have implemented a lightweight set of validations.
-# Test Cases
+# Test Cases - Demo area with base scripts on all basic operations
 Feature: Best Buy Products Feature
+GET - 7 Tests
 Scenario 1: I get a list of products from Best Buy
 Scenario Outline 2( 3 x tests ): I get a product based on an ID
 Scenario Outline 3( 3 x tests ): I get a product based on an invalid ID
-
+POST - 5 Tests
+Scenario Outline 4( 3 x tests ): XRAY-0004 POST a new product
+Scenario Outline 5( 2 x tests ): XRAY-0005 POST an invalid product
