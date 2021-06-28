@@ -1,5 +1,7 @@
 package starter.products;
 
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.ResponseBody;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
@@ -52,6 +54,28 @@ public class bbProductsAPI {
                 body(payload).
                 when().
                 put(PRODUCT_BY_ID).prettyPrint();
+    }
+
+    @Step("I delete a product by id")
+    public static void deleteProductById() {
+        SerenityRest.
+                given()
+                .get(PRODUCTS).prettyPrint();
+
+        ResponseBody body = SerenityRest.lastResponse();
+        JsonPath jp = new JsonPath(body.asString());
+        String productId = jp.get("data.id[0]").toString();
+        System.out.println("Deleting product with ID " + productId);
+        SerenityRest.given().
+                pathParam("id", productId).
+                delete(PRODUCT_BY_ID).prettyPrint();
+    }
+
+    @Step("I delete a product by id {0}")
+    public static void deleteProductById(String productId) {
+        SerenityRest.given().
+                pathParam("id", productId).
+                delete(PRODUCT_BY_ID).prettyPrint();
     }
 
     public static String generateStringFromResource(String xrayId) {

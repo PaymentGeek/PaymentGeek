@@ -54,4 +54,14 @@ public class bbProductsStepDefinitions {
     public void putProduct(String id, String xrayId) {
         bbProductsAPI.putProductforId(id, xrayId);
     }
+
+    @When("I delete a product by id")
+    public void deleteProductById() {
+        bbProductsAPI.deleteProductById();
+    }
+
+    @When("I delete a product by id {}")
+    public void deleteProductById(String id) {
+        bbProductsAPI.deleteProductById(id);
+    }
 }
