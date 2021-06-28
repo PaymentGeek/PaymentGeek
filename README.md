@@ -1,9 +1,20 @@
-# Getting started with REST API testing with Serenity and Cucumber 6
+# Best-Buy Automated Testing Solution
+Interview project for the Best-Buy API.
+# Installation
+Just copy the project from GITHUB: https://github.com/PaymentGeek/serenity-rest-starter.git
+# Running
+Setup a Maven configuration with the following command line parameters: clean verify
+# Test Reporting
+Run the project, and there is a summary of the execution in the console. I've added some verbosing in the console
+for a first layer of feedback. However, for a more detailed situation, please consult the generated report by opening it
+in your browser.
+file:///C:/Users/<local_User>/IdeaProjects/serenity-rest-starter/target/site/serenity/index.html
+# Test planning
+For the purpose of this assignment, I have selected one endpoint(Product) which I will cover with all basic CRUD operations.
+I have implemented a lightweight set of validations.
+# Test Cases
+Feature: Best Buy Products Feature
+Scenario 1: I get a list of products from Best Buy
+Scenario Outline 2( 3 x tests ): I get a product based on an ID
+Scenario Outline 3( 3 x tests ): I get a product based on an invalid ID
 
-This is a simple starter project for Serenity with Cucumber 6 and RestAssured
-
-## Want to learn more?
-For more information about Serenity BDD, you can read the [**Serenity BDD Book**](https://serenity-bdd.github.io/theserenitybook/latest/index.html), the official online Serenity documentation source. Other sources include:
-* **[Byte-sized Serenity BDD](https://www.youtube.com/channel/UCav6-dPEUiLbnu-rgpy7_bw/featured)** - tips and tricks about Serenity BDD
-* [**Serenity BDD Blog**](https://johnfergusonsmart.com/category/serenity-bdd/) - regular articles about Serenity BDD
-* [**The Serenity Dojo**](https://www.serenity-dojo.com) - Tailored BDD and Test Automation Training and Mentoring
