@@ -58,4 +58,9 @@ public class bbProductsStepDefinitions {
     public void postProduct(String xrayId) {
         bbProductsAPI.postProductforId(xrayId);
     }
+
+    @When("I PUT a new product {} for id {}")
+    public void putProduct(String id, String xrayId) {
+        bbProductsAPI.putProductforId(id, xrayId);
+    }
 }

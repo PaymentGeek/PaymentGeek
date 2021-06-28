@@ -40,6 +40,20 @@ public class bbProductsAPI {
                     post(PRODUCTS).prettyPrint();
     }
 
+    @Step("I PUT a new product {0} for id {1}")
+    public static void putProductforId(String id, String xrayId) {
+        String payload = generateStringFromResource(xrayId);
+
+        //System.out.println("PAYLOAD BODY \n"+payload);
+        SerenityRest.
+                given().
+                pathParam("id", id).
+                contentType("application/json").
+                body(payload).
+                when().
+                put(PRODUCT_BY_ID).prettyPrint();
+    }
+
     public static String generateStringFromResource(String xrayId) {
 
     File file = new File(RESOURCES+"\\"+xrayId+".json");

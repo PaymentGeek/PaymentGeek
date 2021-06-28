@@ -48,3 +48,18 @@ Feature: Best Buy Products Feature
       |XRAY-0005_1    |['price' should be multiple of 0.01]                    |
       # Invalid description
       |XRAY-0005_2    |['description' should NOT be longer than 100 characters]|
+
+  Scenario Outline: XRAY-0006 POST a new product
+    # please pass the product ID as a first parameter
+    # and XRAY ID of the test case as a parameter
+    When I PUT a new product <id> for id <xray_id>
+    Then the response code should be 200
+    # Check that the update occurred.
+    When I get a product by id <id>
+    Then the response code should be 200
+    And the value in field name equals <value>
+    Examples:
+      |id          |xray_id        |value       |
+      |43900       |XRAY-0006_1    |PUT - Test New Product1|
+      |48530       |XRAY-0006_2    |PUT - Test New Product2|
+      |127687      |XRAY-0006_3    |PUT - Test New Product3|
